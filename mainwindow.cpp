@@ -159,7 +159,7 @@ void MainWindow::nsbtx_readErrorsToCmd()
     {
         line = myProcess->readLine();
         if (line.toLower().contains("error"))
-            ui->cmd_out->appendPlainText(line.trimmed() + "!");
+            ui->nsbtx_cmd_out->appendPlainText(line.trimmed() + "!");
     } while (!line.isNull());
 }
 
