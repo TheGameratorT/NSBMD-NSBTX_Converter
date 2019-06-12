@@ -246,7 +246,7 @@ color: rgb(0, 255, 0);</string>
        <rect>
         <x>10</x>
         <y>90</y>
-        <width>551</width>
+        <width>581</width>
         <height>161</height>
        </rect>
       </property>
@@ -259,22 +259,6 @@ color: rgb(0, 255, 0);</string>
       </property>
       <property name="plainText">
        <string>Select an image file and a NSBTX save path then click convert!</string>
-      </property>
-     </widget>
-     <widget class="QProgressBar" name="nsbtx_progressBar">
-      <property name="geometry">
-       <rect>
-        <x>570</x>
-        <y>90</y>
-        <width>21</width>
-        <height>161</height>
-       </rect>
-      </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
       </property>
      </widget>
     </widget>
