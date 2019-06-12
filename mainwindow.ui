@@ -6,134 +6,278 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>300</height>
+    <width>609</width>
+    <height>330</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>NSBMD Converter</string>
+   <string>NSBMD &amp; NSBTX Converter</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLineEdit" name="sourceMDL_loc">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>10</y>
-      <width>341</width>
-      <height>31</height>
+      <x>0</x>
+      <y>0</y>
+      <width>611</width>
+      <height>331</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>141</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Source Model Location:</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="sourceMDLpath_btn">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>10</y>
-      <width>93</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Select</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>131</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>NSBMD Save Location:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="saveNSBMD_loc">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>50</y>
-      <width>341</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="saveNSBMDpath_btn">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>50</y>
-      <width>93</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Select</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="convert_btn">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>260</y>
-      <width>581</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Convert and Save</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="cmd_out">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>551</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 0);
-color: rgb(0, 255, 0);</string>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-    <property name="plainText">
-     <string>Select a model file and a NSBMD save path then click convert!</string>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="progressBar">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>90</y>
-      <width>21</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="value">
+    <property name="currentIndex">
      <number>0</number>
     </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
+    <widget class="QWidget" name="nsbmd_tab">
+     <attribute name="title">
+      <string>NSBMD</string>
+     </attribute>
+     <widget class="QPlainTextEdit" name="cmd_out">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>551</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(0, 255, 0);</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="plainText">
+       <string>Select a model file and a NSBMD save path then click convert!</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="sourceMDL_loc">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>10</y>
+        <width>341</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NSBMD Save Location:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="saveNSBMDpath_btn">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>50</y>
+        <width>93</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="convert_btn">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>260</y>
+        <width>581</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Convert and Save</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sourceMDLpath_btn">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>10</y>
+        <width>93</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Source Model Location:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="saveNSBMD_loc">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>50</y>
+        <width>341</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>90</y>
+        <width>21</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="nsbtx_tab">
+     <attribute name="title">
+      <string>NSBTX</string>
+     </attribute>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Source Texture Location:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NSBTX Save Location:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nsbtx_convert_btn">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>260</y>
+        <width>581</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Convert and Save</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nsbtx_image_source_select">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>10</y>
+        <width>93</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nsbtx_save_path_select">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>50</y>
+        <width>93</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="nsbtx_save_path">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>50</y>
+        <width>331</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="nsbtx_image_source">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>10</y>
+        <width>331</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="nsbtx_cmd_out">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>551</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(0, 255, 0);</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="plainText">
+       <string>Select an image file and a NSBTX save path then click convert!</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="nsbtx_progressBar">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>90</y>
+        <width>21</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
  </widget>
