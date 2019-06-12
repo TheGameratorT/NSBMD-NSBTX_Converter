@@ -5,6 +5,7 @@
 #include "QDebug"
 #include "QTimer"
 #include "QThread"
+#include "QMessageBox"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -85,12 +86,16 @@ void MainWindow::on_convert_btn_clicked() //Convert Part 1
 
     ui->cmd_out->appendPlainText("Status: Generating IMD file, please wait...");
 
-    QProcess *myProcess = new QProcess(this);
-    myProcess->setProgram(QApplication::applicationDirPath() + "/bin/ass2imd/AssToImd");
-    myProcess->setNativeArguments(srcFBXpath + " -o " + destIMDpath);
-    myProcess->start();
-    connect(myProcess, SIGNAL(readyRead()), this, SLOT(nsbmd_readErrorsToCmd()));
-    connect(myProcess, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(doIMD2NSBMD()));
+    QProcess *ass2imd = new QProcess(this);
+    ass2imd->setProgram(QApplication::applicationDirPath() + "/bin/ass2imd/AssToImd");
+    ass2imd->setNativeArguments(srcFBXpath + " -o " + destIMDpath);
+    ass2imd->start();
+    if(ass2imd->state() == QProcess::NotRunning)
+    {
+        ui->nsbtx_cmd_out->appendPlainText("Error: Could not start \"./bin/ass2imd/AssToImd\"");
+    }
+    connect(ass2imd, SIGNAL(readyRead()), this, SLOT(nsbmd_readErrorsToCmd()));
+    connect(ass2imd, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(doIMD2NSBMD()));
 
     progressBarTimer = new QTimer();
     progressBarTimer->setSingleShot(false);
@@ -119,7 +124,10 @@ void MainWindow::doIMD2NSBMD() //Convert Part 2
     g3dcvtr->setProgram(QApplication::applicationDirPath() + "/bin/imd2nsbmd/g3dcvtr");
     g3dcvtr->setNativeArguments(destIMDpath + " -o " + destNSBMDpath);
     g3dcvtr->start();
-    //connect(g3dcvtr, SIGNAL(readyRead()), this, SLOT(readErrorsToCmd()));
+    if(g3dcvtr->state() == QProcess::NotRunning)
+    {
+        ui->nsbtx_cmd_out->appendPlainText("Error: Could not start \"./bin/imd2nsbmd/g3dcvtr\"");
+    }
     connect(g3dcvtr, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(nsbmd_finishConvertion()));
 
     progressBarIncrementMax = 100;
@@ -197,6 +205,10 @@ void MainWindow::on_nsbtx_convert_btn_clicked()
     ass2imd->setProgram(QApplication::applicationDirPath() + "/bin/ass2imd/AssToImd");
     ass2imd->setNativeArguments(nsbtx_genMDLpath + " -o " + nsbtx_destIMDpath);
     ass2imd->start();
+    if(ass2imd->state() == QProcess::NotRunning)
+    {
+        ui->nsbtx_cmd_out->appendPlainText("Error: Could not start \"./bin/ass2imd/AssToImd\"");
+    }
     connect(ass2imd, SIGNAL(readyRead()), this, SLOT(nsbtx_readErrorsToCmd()));
     connect(ass2imd, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(nsbtx_imd_process_end()));
 }
@@ -217,6 +229,10 @@ void MainWindow::nsbtx_imd_process_end()
     g3dcvtr->setProgram(QApplication::applicationDirPath() + "/bin/imd2nsbmd/g3dcvtr");
     g3dcvtr->setNativeArguments(nsbtx_destIMDpath + " -o " + nsbtx_genNSBMDpath);
     g3dcvtr->start();
+    if(g3dcvtr->state() == QProcess::NotRunning)
+    {
+        ui->nsbtx_cmd_out->appendPlainText("Error: Could not start \"./bin/imd2nsbmd/g3dcvtr\"");
+    }
     connect(g3dcvtr, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(nsbtx_g3dcvtr_process_end()));
 }
 
