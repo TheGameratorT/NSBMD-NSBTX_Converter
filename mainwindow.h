@@ -16,19 +16,19 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_sourceMDLpath_btn_clicked();
+    void on_nsbmd_sourceMDLpath_btn_clicked();
 
-    void on_saveNSBMDpath_btn_clicked();
+    void on_nsbmd_saveNSBMDpath_btn_clicked();
 
-    void on_convert_btn_clicked();
+    void on_nsbmd_convert_btn_clicked();
 
     void nsbmd_readErrorsToCmd();
 
-    void doIMD2NSBMD();
+    void nsbmd_imd_process_end();
 
-    void doProgressIncrementation();
+    void nsbmd_doProgressIncrementation();
 
-    void nsbmd_finishConvertion();
+    void nsbmd_g3dcvtr_process_end();
 
     void nsbtx_readErrorsToCmd();
 
