@@ -30,7 +30,7 @@
      <attribute name="title">
       <string>NSBMD</string>
      </attribute>
-     <widget class="QPlainTextEdit" name="cmd_out">
+     <widget class="QPlainTextEdit" name="nsbmd_cmd_out">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -50,7 +50,7 @@ color: rgb(0, 255, 0);</string>
        <string>Select a model file and a NSBMD save path then click convert!</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="sourceMDL_loc">
+     <widget class="QLineEdit" name="nsbmd_sourceMDL_loc">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -73,7 +73,7 @@ color: rgb(0, 255, 0);</string>
        <string>NSBMD Save Location:</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="saveNSBMDpath_btn">
+     <widget class="QPushButton" name="nsbmd_saveNSBMDpath_btn">
       <property name="geometry">
        <rect>
         <x>500</x>
@@ -86,7 +86,7 @@ color: rgb(0, 255, 0);</string>
        <string>Select</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="convert_btn">
+     <widget class="QPushButton" name="nsbmd_convert_btn">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -99,7 +99,7 @@ color: rgb(0, 255, 0);</string>
        <string>Convert and Save</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="sourceMDLpath_btn">
+     <widget class="QPushButton" name="nsbmd_sourceMDLpath_btn">
       <property name="geometry">
        <rect>
         <x>500</x>
@@ -125,7 +125,7 @@ color: rgb(0, 255, 0);</string>
        <string>Source Model Location:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="saveNSBMD_loc">
+     <widget class="QLineEdit" name="nsbmd_saveNSBMD_loc">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -135,7 +135,7 @@ color: rgb(0, 255, 0);</string>
        </rect>
       </property>
      </widget>
-     <widget class="QProgressBar" name="progressBar">
+     <widget class="QProgressBar" name="nsbmd_progressBar">
       <property name="geometry">
        <rect>
         <x>570</x>
