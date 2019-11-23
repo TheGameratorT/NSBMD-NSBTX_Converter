@@ -1,3 +1,7 @@
+# Important Warning!
+<strong>Outdated tool! Please use https://github.com/TheGameratorT/NitroModel_ConverterGUI/ instead!
+No more updates will be released for this version.</strong>
+
 # NSBMD & NSBTX Converter
 This application supported by a GUI allows to convert models to NSBMD files and textures to NSBTX files easily.
 
